@@ -1,1 +1,58 @@
-<p>find-tickets works! hellooo</p>
+
+<div class="image-section">
+    <!--
+
+    -->
+    <div style="height: 15px;">
+
+    </div>
+    <div class="panel panel-warning" style="margin-bottom: 15px;margin-left:15px; margin-right:15px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Thông tin hành trình</h3>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                  <label for="departure-station">Ga đi:</label>
+                  <input type="text" id="departure-station" name="departure-station" list="stations">
+                  <datalist id="stations">
+                    <option value="Sài Gòn">
+                    <option value="Ga 2">
+                    <option value="Ga 3">
+                  </datalist>
+                </div>
+                <div class="form-group">
+                  <label for="arrival-station">Ga đến:</label>
+                  <input type="text" id="departure-station-arivel" name="departure-station-2" list="stations-arivel">
+                  <datalist id="stations-arivel">
+                    <option value="Hà Nội">
+                    <option value="Ga 2">
+                    <option value="Ga 3">
+                  </datalist>
+                </div>
+                <div class="form-group">
+                  <label for="departure-date">Ngày đi:</label>
+                  <input type="date" id="departure-date" name="departure-date">
+                </div>
+                <div class="form-group">
+                  <label for="return-date">Ngày về:</label>
+                  <input type="date" id="return-date" name="return-date">
+                </div>
+                <div class="form-check" style="text-align: center;">
+                    <label for="" style="margin-top: 4; margin-right: 5px;">Một chiều</label>
+                    <input type="radio" value="Khứ hồi" id="num-passengers" name="Khu hồi" style="margin-right: 20px;">
+                    <label for="" style="margin-top: 4; margin-right: 5px;">Khứ hồi</label>
+                    <input type="radio" id="num-passengers" name="num-passengers" min="1" max="10">
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <button type="submit">Tìm kiếm</button>
+                  </div>
+              </form>
+              
+              
+           
+        </div>
+    </div>
+</div>
+<app-notifications></app-notifications>
+

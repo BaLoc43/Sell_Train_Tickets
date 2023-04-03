@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 
 export class HomeComponent {
 
-  hienThiNoiDungCon: boolean = false;
+  showMenu: boolean = false;
 }

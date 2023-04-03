@@ -10,6 +10,11 @@ import { PayTicketsComponent } from './viewer/passenger/sidebar/pay-tickets/pay-
 import { TicketLookupComponent } from './viewer/passenger/sidebar/ticket-lookup/ticket-lookup.component';
 import { TrainTimeFaresComponent } from './viewer/passenger/sidebar/train-time-fares/train-time-fares.component';
 import { RegulationsComponent } from './viewer/passenger/sidebar/regulations/regulations.component';
+import { HeaderComponent } from './viewer/passenger/header/header.component';
+import { NotificationsComponent } from './viewer/passenger/notifications/notifications.component';
+import { FooterComponent } from './viewer/passenger/footer/footer.component';
+import { MainComponent } from './viewer/passenger/main/main.component';
+import { ResultTicketsComponent } from './viewer/passenger/sidebar/result-tickets/result-tickets.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { RegulationsComponent } from './viewer/passenger/sidebar/regulations/reg
     PayTicketsComponent,
     TicketLookupComponent,
     TrainTimeFaresComponent,
-    RegulationsComponent
+    RegulationsComponent,
+    HeaderComponent,
+    NotificationsComponent,
+    FooterComponent,
+    MainComponent,
+    ResultTicketsComponent
   ],
   imports: [
     BrowserModule,
