@@ -11,10 +11,6 @@ html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%
 }
-p{
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;;
-}
 
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary {
     display: block
@@ -43,7 +39,9 @@ a:active,a:hover {
 }
 
 b,strong {
-    font-weight: 700
+    font-weight: 700;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 dfn {
@@ -238,9 +236,7 @@ td,th {
     src: url(../fonts/glyphicons-halflings-regular.eot);
     src: url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')
 } */
-h3{
-    text-align: center;
-}
+
 .glyphicon {
     position: relative;
     top: 1px;
@@ -253,6 +249,10 @@ h3{
     -moz-osx-font-smoothing: grayscale
 }
 
+.btn.btn-primary:hover{
+    background-color: #f0ec12;
+    color: #000;
+}
 .glyphicon-asterisk:before {
     content: "\2a"
 }
@@ -1195,7 +1195,10 @@ hr {
 }
 
 .h3,h3 {
-    font-size: 24px
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
 }
 
 .h4,h4 {
@@ -2579,7 +2582,8 @@ label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
-    font-weight: 700
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 input[type=search] {
@@ -2622,6 +2626,7 @@ output {
 
 .form-control {
     display: block;
+    border-radius: 10px !important;
     width: 100%;
     height: 38px;
     padding: 8px 12px;
@@ -2675,7 +2680,8 @@ input[type=search] {
 
 input[type=date],input[type=datetime-local],input[type=month],input[type=time] {
     line-height: 38px;
-    line-height: 1.42857143 \0
+    line-height: 1.42857143 \0;
+    border-radius: 10px !important;
 }
 
 input[type=date].input-sm,input[type=datetime-local].input-sm,input[type=month].input-sm,input[type=time].input-sm {
@@ -3065,8 +3071,8 @@ select[multiple].input-lg,textarea.input-lg {
 
 .btn-primary {
     color: #fff;
-    background-color: #2fa4e7;
-    border-color: #2fa4e7
+    background-color: #0082c0;
+    border-color: #0082c0
 }
 
 .btn-primary.active,.btn-primary:active,.btn-primary:focus,.btn-primary:hover,.open>.dropdown-toggle.btn-primary {
@@ -5267,7 +5273,7 @@ a.list-group-item-danger.active,a.list-group-item-danger.active:focus,a.list-gro
 .panel-title {
     margin-top: 0;
     margin-bottom: 0;
-    font-size: 20px;
+    font-size: 16px;
     color: inherit
 }
 
@@ -6452,7 +6458,7 @@ button.close {
 .navbar {
     background-image: -webkit-linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
     background-image: -o-linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
-    background-image: linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
+    background-image: linear-gradient(#0082c0,#0082c0 60%,#0082c0);
     background-repeat: no-repeat;
     border-bottom: 1px solid #178acc;
     filter: none;
@@ -6515,11 +6521,13 @@ button.close {
 .btn-primary {
     background-image: -webkit-linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
     background-image: -o-linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
-    background-image: linear-gradient(#54b4eb,#2fa4e7 60%,#1d9ce5);
+    /* background-image: linear-gradient(#0082c0,#0082c0 60%,#0082c0); */
     background-repeat: no-repeat;
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
     filter: none;
-    border-bottom: 1px solid #178acc
+    border-bottom: 1px solid #178acc;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .btn-success {
@@ -8634,7 +8642,7 @@ table th {
 }
 
 .panel-warning>.panel-heading {
-    background-color: rgba(73, 123, 254, 1) !important;
+    background-color: #dd5600!important;
     color: #fff!important;
     border-color: #ddd!important
 }

@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container" style="margin-bottom: 8px;">
     <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <!-- <a class="navbar-brand" href="index.html">RailWay</a> -->
-            <div class="navbar-brand" style="height: 100px;">
-            
+            <div class="navbar-brand" style="height: 130px;">
+                <a routerLink="/trangchu" class="nav-link " > <img src="assets/images/logo.svg"  alt=""></a>
+                   
             </div>
             <div class="social-media order-lg-last">
                 <p class="mb-0 d-flex">
                     <a href="#" class="d-flex align-items-center justify-content-center"><span
-                            class="fa fa-shopping-cart"><i class="sr-only">Dribbble</i></span></a>
+                            class="fa fa-shopping-bag"><span class="badge" style="background-color: rgb(17, 223, 51); left: 1060px;">3</span><i class="sr-only">Dribbble</i></span></a>
+                            
                 </p>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
@@ -17,13 +19,13 @@
             </button>
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav ml-auto mr-md-3">
-                    <li class="nav-item active"><a routerLink="" routerLinkActive="active" class="nav-link">Trang chủ</a></li>
-                    <li class="nav-item"><a routerLink="/tim-ve" class="nav-link">Tìm vé</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Kiểm tra vé</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Trả vé</a></li>
-                    <li class="nav-item"><a routerLink="/regulations" class="nav-link">Quy định</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Liên hệ</a></li>
-                </ul>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/trangchu" class="nav-link">Trang chủ</a></li>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/tim-ve" class="nav-link">Tìm vé</a></li>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/kiem-tra-ve" class="nav-link">Kiểm tra vé</a></li>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/tra-ve" class="nav-link">Trả vé</a></li>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/regulations" class="nav-link">Quy định</a></li>
+                    <li class="nav-item" [routerLinkActive]="['active']"><a routerLink="/lien-he" class="nav-link">Liên hệ</a></li>
+                  </ul>
             </div>
 
         </div>

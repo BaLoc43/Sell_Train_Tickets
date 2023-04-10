@@ -21,22 +21,9 @@ img {
     max-height: 100%;
     object-fit: contain;
   }
-  .image-section {
-    background-image: url("images/Banner.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 300px;
-  }
+  
 
-  .image-section2 {
-    background-image: url("images/Railway.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 90%;
-    height: 800px;
-  }
-
+ 
   /* .container {
     text-align: center;
   }
@@ -113,24 +100,10 @@ img {
     opacity: 1;
   }
   
-  .image-1 {
-    background-image: url('images/simple-icons_fastly.jpg');
-   width: 88%;
-   height: 90%;
-   
-  }
   
-  .image-2 {
-    background-image: url('images/mdi_credit-card-fast.png');
-    width: 95%;
-    height: 90%;
-  }
   
-  .image-3 {
-    background-image: url('images/ion_ticket.png');
-    width: 95%;
-    height: 90%;
-  }
+  
+  
   
   .caption {
     position: absolute;

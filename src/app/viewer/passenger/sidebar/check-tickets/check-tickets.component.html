@@ -1,0 +1,156 @@
+<div ng-controller="KiemTraVeController" class="kt-form ng-scope">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="ng-binding" style="text-align: center;">Kiểm tra vé<!--Kiểm tra vé--></h3>
+            <!-- <div class="alert alert-info">
+                <div ng-bind-html="'PKTraVe_MoTa'|translate" class="ng-binding">Theo quy định của Tổng công ty Đường sắt
+                    Việt Nam, hành khách có thông tin giấy tờ tùy thân trùng với thông tin trên vé điện tử mới đủ điều
+                    kiện vào ga lên tàu.<br>Để đảm bảo quyền lợi cho hành khách, tránh mua phải vé giả, hoặc vé không
+                    đúng với quy định, quý khách có thể kiểm tra lại vé điện tử của mình bằng cách điền đầy đủ các thông
+                    tin dưới đây.</div>
+            </div> -->
+            <!-- <div class="alert alert-danger ng-hide" ng-show="isError">
+                <div ng-bind-html="'PKTraVe_InputError'|translate" class="ng-binding">Thông tin quý khách nhập chưa
+                    chính xác, vui lòng kiểm tra các mục lỗi màu đỏ bên dưới.</div>
+            </div> -->
+            <div class="alert alert-success ng-hide" ng-show="isValidTicket">
+                <div ng-bind-html="'PKTraVe_ResultValid'|translate" class="ng-binding"><strong>Vé điện tử của bạn hoàn
+                        toàn hợp lệ.</strong></div>
+            </div>
+            <!-- <div class="alert alert-danger ng-hide" ng-show="isInvalidTicket">
+                <div ng-bind-html="'PKTraVe_ResultInValid'|translate" class="ng-binding">
+                    <p><strong>Không tìm thấy vé điện tử phù hợp.</strong></p>
+                    <p>- Quý khách vui lòng kiểm tra và nhập chính xác các thông tin tìm vé.</p>
+                    <p>- Nếu vẫn không tìm thấy Vé xin vui lòng ra ga để kiểm tra hoặc liên hệ đầu số
+                        <strong>19006469</strong> để được trợ
+                        giúp.</p>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding" ng-class="{'has-error': maVeError}">Mã vé<!--Mã vé--></label>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="form-group" ng-class="{'has-error': maVeError}">
+                    <span class="control-label ng-binding ng-hide" ng-show="maVeError">Vui lòng nhập mã vé chính xác 8
+                        hoặc 9 ký tự số<!--Vui lòng nhập mã vé chính xác 8 hoặc 9 ký tự số--></span>
+                    <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchData.maVe"
+                        ng-disabled="isRequesting" ng-change="maVeError = false"
+                        placeholder="Nhập mã vé gồm 8 hoặc 9 ký tự số" id="maVe">
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding" ng-class="{'has-error': macTauError}">Mác
+                    tàu<!--Mác tàu--></label>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="form-group" ng-class="{'has-error': macTauError}">
+                    <span class="control-label ng-binding ng-hide" ng-show="macTauError">Vui lòng nhập mác tàu chính
+                        xác<!--Vui lòng nhập mác tàu chính xác--></span>
+                    <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchData.macTau"
+                        ng-change="macTauError = false" placeholder="Ví dụ SE1, TN1, SE2, SE6 ..." id="gaDen">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding" ng-class="{'has-error': gaDiError}">Ga đi<!--Ga đi--></label>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="form-group" ng-class="{'has-error': gaDiError}">
+                    <span class="control-label ng-binding ng-hide" ng-show="gaDiError">Vui lòng nhập ga đi ghi trên
+                        vé<!--Vui lòng nhập ga đi ghi trên vé--></span>
+                    <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchData.tenGaDi"
+                        ng-change="verifyGa(searchData.tenGaDi, true)" typeahead-on-select="setMaGaDi($item)"
+                        typeahead="ga.TenGa for ga in gas | filter:$viewValue | limitTo:10"
+                        placeholder="Nhập mã ga đi tại đây" id="gaDi" aria-autocomplete="list" aria-expanded="false"
+                        aria-owns="typeahead-04M-6001">
+
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding" ng-class="{'has-error': gaDenError}">Ga đến<!--Ga đến--></label>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="form-group" ng-class="{'has-error': gaDenError}">
+                    <span class="control-label ng-binding ng-hide" ng-show="gaDenError">Vui lòng nhập ga đến ghi trên
+                        vé<!--Vui lòng nhập ga đến ghi trên vé--></span>
+                    <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchData.tenGaDen"
+                        ng-change="verifyGa(searchData.tenGaDen, false)" typeahead-on-select="setMaGaDen($item)"
+                        typeahead="ga.TenGa for ga in gas | filter:$viewValue | limitTo:10"
+                        placeholder="Nhập mã ga đến tại đây" id="gaDen" aria-autocomplete="list" aria-expanded="false"
+                        aria-owns="typeahead-04N-5231">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding" ng-class="{'has-error': ngayDiError}">Ngày
+                    đi<!--Ngày đi--></label>
+            </div>
+            <div _ngcontent-ppu-c53="" class="col-xs-8 col-sm-4 col-md-4">
+                <div _ngcontent-ppu-c53="" ng-class="{'has-error': gaDiError}" class="form-group"><span _ngcontent-ppu-c53=""
+                        ng-show="gaDiError" class="control-label ng-binding ng-hide">Vui lòng nhập ga đi ghi trên vé</span><input
+                        _ngcontent-ppu-c53="" type="date" ng-model="searchData.tenGaDi"
+                        ng-change="verifyGa(searchData.tenGaDi, true)" typeahead-on-select="setMaGaDi($item)"
+                        typeahead="ga.TenGa for ga in gas | filter:$viewValue | limitTo:10" placeholder="Nhập mã ga đi tại đây"
+                        id="gaDi" aria-autocomplete="list" aria-expanded="false" aria-owns="typeahead-04M-6001"
+                        class="form-control ng-pristine ng-valid"></div>
+            </div>
+
+            <div class="col-xs-4 col-sm-2 col-md-2">
+                <label class="kt-form-label ng-binding">Số giấy tờ<!--Số giấy tờ--></label>
+            </div>
+            <div class="col-xs-8 col-sm-4 col-md-4">
+                <div class="form-group">
+                    <!--<span class="control-label" ng-show="cmtError">Vui lòng nhập số giấy tờ cá nhân ghi trên vé</span>-->
+                    <input type="text" class="form-control ng-pristine ng-valid" ng-model="searchData.cmt"
+                        ng-change="cmtError=false" placeholder="Nhập giấy tờ cá nhân ghi trên vé" id="maVe">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <input analytics-on="click" analytics-event="DoCheckTicket" type="button" class="btn btn-primary"
+                    ng-click="submitForm()" value="Kiểm tra vé" style="border-radius: 10px !important; margin-bottom: 20px;   border: 1px solid rgba(0, 0, 0, 0.1); ">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div ng-show="isValidTicket" class="ng-hide" style="padding-left: 30px; padding-right: 30px;">
+            <h3 class="ng-binding">Thông tin vé<!--Thông tin vé--></h3>
+            <!--Giao dien cho deskhop-->
+            <table class="table table-bordered list-ticket-deskhop">
+                <thead class="et-table-header">
+                    <tr>
+                        <th style="width:2%;">STT</th>
+                        <th style="width:10%;">Mác tàu</th>
+                        <th style="width:10%;">Ngày đi</th>
+                        <th style="width:10%;">Ga đi</th>
+                        <th style="width:10%;">Ga đến</th>
+                        <th style="width:10%;">Giá vé</th>
+                        <th style="width:10%;">Giảm giá phương thức</th>
+                        <th style="width:10%;">Giảm giá thời gian</th>
+                        <th style="width:10%;">Tiền dịch vụ</th>
+                        <th style="width:10%;">Bảo hiểm</th>
+                        <th style="width:10%;">Tiền thu</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- ngRepeat: item in items -->
+                </tbody>
+            </table>
+            <!--Giao dien cho mobile-->
+            <!-- ngRepeat: item in items -->
+        </div>
+    </div>
+</div>
+
+<!-- <app-notifications></app-notifications> -->

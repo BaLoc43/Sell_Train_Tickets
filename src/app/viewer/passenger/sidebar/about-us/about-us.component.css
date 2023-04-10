@@ -1,0 +1,23 @@
+.et-col-md-12.ng-scope{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    
+}
+
+.col-xs-12.col-sm-6.et-col-md-6{
+    position: relative;
+    min-height: 1px;
+    float: left;
+    display: block;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+p{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.ng-binding{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
